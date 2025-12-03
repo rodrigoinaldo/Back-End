@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('agendamentos', function (Blueprint $table) {
-            $table->string('google_event_id')->nullable()->after('id');
+        Schema::create('horarios', function (Blueprint $table) {
+            $table->id();
+
+            $table->date('date')->nullable();
+            $table->time('time')->nullable();
+            $table->timestamps();
+
         });
     }
 
@@ -21,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('agendamentos', function (Blueprint $table) {
-            $table->dropColumn('google_event_id');
-        });
+        Schema::dropIfExists('horarios');
     }
 };

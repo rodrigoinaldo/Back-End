@@ -16,21 +16,12 @@ return new class extends Migration
 
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
 
-            // Data e hora do agendamento
-            $table->dateTime('dataHora');
             $table->boolean('status')->default(true);
 
             ##PARA Mysql
             //relacionamento de tabelas
-            $table->foreignId('medico_id');
-            $table->foreign('medico_id')->references('id')->on('medicos')->onDelete('cascade');
-
-            $table->foreignId('local_atendimento_id');
-            $table->foreign('local_atendimento_id')->references('id')->on('local_atendimentos');
-
-            $table->foreignId('tipo_consulta_id');
-            $table->foreign('tipo_consulta_id')->references('id')->on('tipo_consultas')->onDelete('cascade');
-
+            $table->foreignId('agenda_id');
+            $table->foreign('agenda_id')->references('id')->on('agendas')->onDelete('cascade');
 
             $table->timestamps();
         });

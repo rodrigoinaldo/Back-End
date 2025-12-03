@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Medico;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class MedicoSeeder extends Seeder
@@ -15,7 +14,7 @@ class MedicoSeeder extends Seeder
     {
         Medico::create([
             'nome' => 'Dr. João Silva',
-            'cpf'=> "14725836945",
+            'cpf' => "14725836945",
             'CRM' => '123456',
             'especialidade_id' => 1,
             'status' => true

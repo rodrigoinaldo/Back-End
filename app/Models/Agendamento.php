@@ -12,11 +12,8 @@ class Agendamento extends Model
 
     protected $fillable = [
         'user_id',
-        'dataHora',
-        'medico_id',
-        'local_atendimento_id',
-        'tipo_consulta_id',
-        'status', 
+        'agenda_id',
+        'status',
     ];
 
     protected $hidden = [
@@ -30,19 +27,11 @@ class Agendamento extends Model
         
     }
 
-    public function local_atendimento()
+    public function agenda()
     {
-        return $this->belongsTo(localAtendimento::class);
+        return $this->belongsTo(Agenda::class);
     }
 
-    public function tipo_consulta()
-    {
-        return $this->belongsTo(tipoConsulta::class);
-    }
 
-    public function medico()
-    {
-        return $this->belongsTo(Medico::class);
-    }
 
 }
